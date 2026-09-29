@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Basic Cisco Commands</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+        }
+
+        header {
+            background: #1e293b;
+            padding: 25px;
+            text-align: center;
+            border-bottom: 2px solid #334155;
+        }
+
+        header h1 {
+            margin: 0;
+            color: #38bdf8;
+        }
+
+        header p {
+            color: #94a3b8;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 30px auto;
+        }
+
+        .card {
+            background: #1e293b;
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .card h2 {
+            color: #38bdf8;
+            margin-top: 0;
+        }
+
+        .command {
+            background: #020617;
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 8px;
+            position: relative;
+            border-left: 4px solid #22c55e;
+        }
+
+        .command code {
+            display: block;
+            color: #4ade80;
+            font-family: Consolas, monospace;
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        .command p {
+            margin: 5px 0;
+            color: #cbd5e1;
+        }
+
+        button {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 7px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #64748b;
+        }
+
+        .warning {
+            border-left: 4px solid #f59e0b;
+            background: #422006;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🌐 Basic Cisco Commands</h1>
+    <p>Panduan dasar Cisco IOS untuk pemula</p>
+</header>
+
+<div class="container">
+
+    <div class="warning">
+        <strong>Catatan:</strong>
+        Perintah di bawah dapat digunakan untuk latihan di Cisco Packet Tracer
+        atau perangkat Cisco yang mendukung Cisco IOS.
+    </div>
+
+    <!-- BASIC -->
+    <div class="card">
+        <h2>1. Perintah Dasar</h2>
+
+        <div class="command">
+            <code>enable</code>
+            <p>Masuk ke privileged EXEC mode.</p>
+            <button onclick="copyCommand('enable')">Copy</button>
+        </div>
+
+        <div class="command">
+            <code>disable</code>
+            <p>Kembali dari privileged mode ke user EXEC mode.</p>
+            <button onclick="copyCommand('disable')">Copy</button>
+        </div>
+
+        <div class="command">
+            <code>configure terminal</code>
+            <p>Masuk ke global configuration mode.</p>
+            <button onclick="copyCommand('configure terminal')">Copy</button>
+        </div>
+
+        <div class="command">
+            <code>exit</code>
+            <p>Kembali satu level konfigurasi.</p>
+            <button onclick="copyCommand('exit')">Copy</button>
+        </div>
+
+        <div class="command">
+            <code>end</code>
+            <p>Kembali langsung ke privileged EXEC mode.</p>
+            <button onclick="copyCommand('end')">Copy</button>
+        </div>
+    </div>
+
+
+    <!-- HOSTNAME -->
+    <div class="card">
+        <h2>2. Mengatur Hostname</h2>
+
+        <div class="command">
+            <code>enable</code>
+            <p>Masuk privileged mode.</p>
+            <button onclick="copyCommand('enable')">Copy</button>
+        </div>
+
+        <div class="command">
+            <code>configure terminal</code>
+            <p>Masuk konfigurasi global.</p>
+            <button onclick="copyCommand('configure terminal')">Copy</button>
+        </div>
+
+        <div class="command">
+            <code>hostname R1</code>
+            <p>Mengubah nama perangkat menjadi R1.</p>
+            <button onclick="copyCommand('hostname R1')">Copy</button>
+        </div>
+    </div>
+
+
+    <!-- IP ADDRESS -->
+    <div class="card">
+        <h2>3. Konfigurasi IP Address</h2>
+
+        <div class="command">
+            <code>interface gigabitEthernet 0/0</code>
+            <p>Masuk ke interface GigabitEthernet 0/0.</p>
+            <button onclick="copyCommand('interface gigabitEthernet 0/0')">
+                Copy
+            </button>
+        </div>
+
+        <div class="command">
+            <code>ip address 192.168.1.1 255.255.255.0</code>
+            <p>Memberikan IP address pada interface.</p>
+            <button onclick="copyCommand('ip address 192.168.1.1 255.255.255.0')">
+                Copy
+            </button>
+        </div>
+
+        <div class="command">
+            <code>no shutdown</code>
+            <p>Mengaktifkan interface.</p>
+            <button onclick="copyCommand('no shutdown')">
+                Copy
+            </button>
+        </div>
+
+        <div class="command">
+            <code>shutdown</code>
+            <p>Menonaktifkan interface.</p>
+            <button onclick="copyCommand('shutdown')">
+                Copy
+            </button>
+        </div>
+    </div>
+
+
+    <!-- SHOW COMMAND -->
+    <div class="card">
+        <h2>4. Perintah Show</h2>
+
+        <div class="command">
+            <code>show running-config</code>
+            <p>Melihat konfigurasi yang sedang berjalan.</p>
+            <button onclick="copyCommand('show running-config')">
+                Copy
+            </button>
+        </div>
+
+        <div class="command">
+            <code>show startup-config</code>
+            <p>Melihat konfigurasi yang tersimpan.</p>
+            <button onclick="copyCommand('show startup-config')">
+                Copy
+            </button>
+        </div>
+
+        <div class="command">
+            <code>show ip interface brief</code>
+            <p>Melihat status dan IP address interface.</p>
+            <button onclick="copyCommand('show ip interface brief')">
+                Copy
+            </button>
+        </div>
+
+        <div class="command">
+            <code>show version</code>
+            <p>Melihat informasi perangkat dan IOS.</p>
+            <button onclick="copyCommand('show version')">
+                Copy
+            </button>
+        </div>
+
+        <div class="command">
+            <code>show interfaces</code>
+            <p>Melihat informasi detail interface.</p>
+            <button onclick="copyCommand('show interfaces')">
+                Copy
+            </button>
+        </div>
+    </div>
+
+
+    <!-- SAVE -->
+    <div class="card">
+        <h2>5. Menyimpan Konfigurasi</h2>
+
+        <div class="command">
+            <code>copy running-config startup-config</code>
+            <p>Menyimpan konfigurasi agar tidak hilang setelah restart.</p>
+            <button onclick="copyCommand('copy running-config startup-config')">
+                Copy
+            </button>
+        </div>
+
+        <div class="command">
+            <code>write memory</code>
+            <p>Alternatif untuk menyimpan konfigurasi pada beberapa IOS.</p>
+            <button onclick="copyCommand('write memory')">
+                Copy
+            </button>
+        </div>
+    </div>
+
+
+    <!-- PASSWORD -->
+    <div class="card">
+        <h2>6. Password Dasar</h2>
+
+        <div class="command">
+            <code>enable secret cisco</code>
+            <p>Membuat password untuk privileged EXEC mode.</p>
+            <button onclick="copyCommand('enable secret cisco')">
+                Copy
+            </button>
+        </div>
+
+        <div class="command">
+            <code>line console 0</code>
+            <p>Masuk ke konfigurasi console.</p>
+            <button onclick="copyCommand('line console 0')">
+                Copy
+            </button>
+        </div>
+
+        <div class="command">
+            <code>password cisco</code>
+            <p>Memberikan password pada line console.</p>
+            <button onclick="copyCommand('password cisco')">
+                Copy
+            </button>
+        </div>
+
+        <div class="command">
+            <code>login</code>
+            <p>Mengaktifkan pemeriksaan password.</p>
+            <button onclick="copyCommand('login')">
+                Copy
+            </button>
+        </div>
+    </div>
+
+
+    <!-- PING -->
+    <div class="card">
+        <h2>7. Testing Koneksi</h2>
+
+        <div class="command">
+            <code>ping 192.168.1.2</code>
+            <p>Menguji koneksi ke perangkat dengan IP tertentu.</p>
+            <button onclick="copyCommand('ping 192.168.1.2')">
+                Copy
+            </button>
+        </div>
+
+        <div class="command">
+            <code>traceroute 192.168.1.2</code>
+            <p>Melihat jalur paket menuju tujuan.</p>
+            <button onclick="copyCommand('traceroute 192.168.1.2')">
+                Copy
+            </button>
+        </div>
+    </div>
+
+
+    <!-- DHCP -->
+    <div class="card">
+        <h2>8. DHCP Server Dasar</h2>
+
+        <div class="command">
+            <code>ip dhcp pool LAN</code>
+            <p>Membuat DHCP pool bernama LAN.</p>
+            <button onclick="copyCommand('ip dhcp pool LAN')">
+                Copy
+            </button>
+        </div>
+
+        <div class="command">
+            <code>network 192.168.1.0 255.255.255.0</code>
+            <p>Menentukan network yang digunakan DHCP.</p>
+            <button onclick="copyCommand('network 192.168.1.0 255.255.255.0')">
+                Copy
+            </button>
+        </div>
+
+        <div class="command">
+            <code>default-router 192.168.1.1</code>
+            <p>Menentukan gateway untuk client.</p>
+            <button onclick="copyCommand('default-router 192.168.1.1')">
+                Copy
+            </button>
+        </div>
+
+        <div class="command">
+            <code>dns-server 8.8.8.8</code>
+            <p>Menentukan DNS server untuk client.</p>
+            <button onclick="copyCommand('dns-server 8.8.8.8')">
+                Copy
+            </button>
+        </div>
+
+        <div class="command">
+            <code>ip dhcp excluded-address 192.168.1.1 192.168.1.10</code>
+            <p>Mengecualikan IP tertentu dari DHCP.</p>
+            <button onclick="copyCommand('ip dhcp excluded-address 192.168.1.1 192.168.1.10')">
+                Copy
+            </button>
+        </div>
+    </div>
+
+
+    <!-- VLAN -->
+    <div class="card">
+        <h2>9. VLAN Dasar</h2>
+
+        <div class="command">
+            <code>vlan 10</code>
+            <p>Membuat VLAN 10.</p>
+            <button onclick="copyCommand('vlan 10')">
+                Copy
+            </button>
+        </div>
+
+        <div class="command">
+            <code>name ADMIN</code>
+            <p>Memberikan nama ADMIN pada VLAN.</p>
+            <button onclick="copyCommand('name ADMIN')">
+                Copy
+            </button>
+        </div>
+
+        <div class="command">
+            <code>interface fastEthernet 0/1</code>
+            <p>Memilih interface FastEthernet 0/1.</p>
+            <button onclick="copyCommand('interface fastEthernet 0/1')">
+                Copy
+            </button>
+        </div>
+
+        <div class="command">
+            <code>switchport mode access</code>
+            <p>Mengatur port menjadi access.</p>
+            <button onclick="copyCommand('switchport mode access')">
+                Copy
+            </button>
+        </div>
+
+        <div class="command">
+            <code>switchport access vlan 10</code>
+            <p>Memasukkan port ke VLAN 10.</p>
+            <button onclick="copyCommand('switchport access vlan 10')">
+                Copy
+            </button>
+        </div>
+    </div>
+
+
+    <!-- ROUTING -->
+    <div class="card">
+        <h2>10. Static Routing</h2>
+
+        <div class="command">
+            <code>ip route 192.168.2.0 255.255.255.0 192.168.1.2</code>
+            <p>Membuat static route menuju network 192.168.2.0/24.</p>
+            <button onclick="copyCommand('ip route 192.168.2.0 255.255.255.0 192.168.1.2')">
+                Copy
+            </button>
+        </div>
+    </div>
+
+
+    <!-- CLEAR -->
+    <div class="card">
+        <h2>11. Reset Konfigurasi</h2>
+
+        <div class="command">
+            <code>erase startup-config</code>
+            <p>Menghapus konfigurasi startup.</p>
+            <button onclick="copyCommand('erase startup-config')">
+                Copy
+            </button>
+        </div>
+
+        <div class="command">
+            <code>reload</code>
+            <p>Restart perangkat.</p>
+            <button onclick="copyCommand('reload')">
+                Copy
+            </button>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>Basic Cisco IOS Command Reference © 2026</p>
+</footer>
+
+
+<script>
+
+function copyCommand(command) {
+
+    navigator.clipboard.writeText(command);
+
+    alert("Perintah berhasil dicopy:\n" + command);
+
+}
+
+</script>
+
+</body>
+</html>
